@@ -1,2 +1,0 @@
-# CNode-
-a Vue practice 
