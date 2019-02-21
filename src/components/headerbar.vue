@@ -55,7 +55,7 @@ export default {
 .logo {
 }
 .searchinput {
-  flex: 2;
+  flex-grow: 2;
   padding-left: 20px;
 }
 .searchinput input {
