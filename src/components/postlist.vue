@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="post">
     <div class="loading" v-if="isLoading">
       <img src="../assets/loading.png" alt>
     </div>
-    <div class="postlist">
+    <div class="postlist" v-else>
       <nav>
         <span>全部</span>
         <span>精华</span>
@@ -24,9 +24,14 @@
             <span
               :class="[{put_good:(post.good==true),put_top:(post.top==true),tempname:(post.good!=true&& post.top!=true)}]"
             >{{post.tab|formatTopicType}}</span>
-            <span class="title">{{post.title}}</span>
+            <router-link :to="{name:'post_content',params:{id:post.id,name:post.author.loginname}}">
+              <span class="title">{{post.title}}</span>
+            </router-link>
             <span>{{post.last_reply_at|formatDate}}</span>
           </div>
+        </li>
+        <li>
+          <pagination></pagination>
         </li>
       </ul>
     </div>
@@ -35,6 +40,7 @@
 
 
 <script>
+import pagination from "./Pagination";
 export default {
   name: "postlist",
   data() {
@@ -42,6 +48,9 @@ export default {
       isLoading: true,
       posts: []
     };
+  },
+  components: {
+    pagination
   },
   methods: {
     getData() {
@@ -66,6 +75,9 @@ export default {
 
 
 <style scoped>
+.post {
+  background-color: #ffffff;
+}
 .postlist .avator {
   width: 30px;
   height: 30px;

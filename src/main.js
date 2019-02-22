@@ -35,7 +35,6 @@ Vue.filter('formatDate', function (str) {
     case (time / 31536000000) > 12:
       return parseInt((time / 31536000000)) + '年前'
     default:
-      console.log(time);
       return '';
   }
 })

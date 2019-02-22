@@ -2,29 +2,39 @@
   <div id="app">
     <headerbar></headerbar>
     <div class="main">
-      <postlist></postlist>
+      <router-view name="main"></router-view>
+      <router-view name="slide"></router-view>
     </div>
   </div>
 </template>
 
 <script>
-import headerbar from "./components/headerbar";
-import postlist from "./components/postlist";
+import Headerbar from "./components/Headerbar";
+import Postlist from "./components/Postlist";
+
 export default {
   name: "App",
   components: {
-    headerbar,
-    postlist
+    Headerbar,
+    Postlist
   }
 };
 </script>
 
 <style>
+#app {
+  background-color: #e1e1e1;
+}
 .main {
   width: 90%;
   max-width: 1400px;
   min-width: 960px;
   margin: 15px auto;
   min-height: 400px;
+  display: flex;
+}
+a {
+  color: inherit;
+  text-decoration: none;
 }
 </style>
