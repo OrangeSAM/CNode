@@ -2,9 +2,9 @@
   <div class="headerout">
     <div class="headerwrap">
       <div class="logo">
-        <a href="#">
+        <router-link :to="{name:'root'}">
           <img src="../assets/cnodejs_light.svg" alt="cnode">
-        </a>
+        </router-link>
       </div>
       <div class="searchinput">
         <input type="text">

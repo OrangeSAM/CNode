@@ -22,23 +22,25 @@
               <span title="浏览数">{{post.visit_count}}</span>
             </span>
             <span
-              :class="[{put_good:(post.good==true),put_top:(post.top==true),tempname:(post.good!=true&& post.top!=true)}]"
-            >{{post.tab|formatTopicType}}</span>
+              :class="[{putgood:(post.good==true),puttop:(post.top==true),
+              'putnormal':(post.good!=true&& post.top!=true)}]"
+            >{{post|formatTopicType}}</span>
             <router-link :to="{name:'post_content',params:{id:post.id,name:post.author.loginname}}">
               <span class="title">{{post.title}}</span>
             </router-link>
-            <span>{{post.last_reply_at|formatDate}}</span>
+            <span class="replylast">{{post.last_reply_at|formatDate}}</span>
           </div>
         </li>
         <li>
-          <pagination></pagination>
+          <pagination @handle="renderList"></pagination>
+          <!-- 事件名有（）和没有的区别 -->
         </li>
       </ul>
     </div>
   </div>
 </template>
 
-
+ 
 <script>
 import pagination from "./Pagination";
 export default {
@@ -46,7 +48,8 @@ export default {
   data() {
     return {
       isLoading: true,
-      posts: []
+      posts: [],
+      page: 1
     };
   },
   components: {
@@ -56,14 +59,22 @@ export default {
     getData() {
       this.$http
         .get("https://cnodejs.org/api/v1/topics", {
-          page: 1,
-          limit: 20
+          params: {
+            page: this.page,
+            limit: 20
+          }
         })
         .then(response => {
           this.isLoading = false;
           this.posts = response.data.data;
         })
-        .catch(err => {});
+        .catch(err => {
+          console.log(err);
+        });
+    },
+    renderList(value) {
+      this.page = value;
+      this.getData();
     }
   },
   beforeMount() {
@@ -77,6 +88,7 @@ export default {
 <style scoped>
 .post {
   background-color: #ffffff;
+  width: 100%;
 }
 .postlist .avator {
   width: 30px;
@@ -130,15 +142,29 @@ export default {
 .topicwrap .replyvisit span:nth-child(3) {
   color: #b4b4b4;
 }
-.topicwrap .put_good,
-.put_top {
-  background-color: #80bd01;
+.topicwrap .putgood,
+.topicwrap .puttop,
+.topicwrap .putnormal {
   color: #fff;
   font-size: 12px;
   padding: 2px 4px;
   border-radius: 3px;
 }
+.topicwrap .putnormal {
+  background-color: #e5e5e5;
+  color: #999;
+}
+.topicwrap .puttop,
+.topicwrap .putgood {
+  background-color: #80bd01;
+  color: #fff;
+}
+
 .topicwrap .title {
   text-overflow: ellipsis;
+}
+.topicwrap .replylast {
+  float: right;
+  font-size: 14px;
 }
 </style>

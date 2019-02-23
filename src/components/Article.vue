@@ -36,9 +36,14 @@
                       <span>{{index+1}}楼</span>
                     </div>
                     <div v-html="comment.content" class="commentCont"></div>
-                    <div>
+                    <div class="commentDetailBot">
                       <span>{{comment.create_at|formatDate}}</span>
-                      <span>{{comment.ups.length>0?comment.ups.length:''}}</span>
+                      <span>
+                        <span v-if="comment.ups.length > 0" class="commentup">
+                          <img src="../assets/up.png" alt>
+                        </span>
+                        {{comment.ups.length>0?comment.ups.length:''}}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -99,13 +104,14 @@ export default {
 @import url("../assets/markdown-github.css");
 
 .articleWrap {
-  width: 70%;
+  flex: 2.5;
 }
 
 .articleUp {
   border-bottom: 1px solid #e5e5e5;
   padding: 10px;
   background-color: #ffffff;
+  border-radius: 3px 3px 0 0;
 }
 .articleTitle {
   font-size: 22px;
@@ -165,6 +171,17 @@ export default {
 }
 .commentCont img {
   width: 100%;
+}
+
+.commentCont a {
+  color: #08c;
+}
+.commentDetailBot {
+  display: flex;
+  justify-content: space-between;
+}
+.commentDetailBot > span:nth-child(2) .commentup img {
+  margin-bottom: -3px;
 }
 
 blockquote {
