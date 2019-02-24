@@ -4,15 +4,21 @@
 
 
 
-以下为项目截图，由于在技术实现上的重复性以及接口的问题，我并没有实现社区中有的全部页面。
+以下为部分项目截图，由于在技术实现上的重复性以及接口的问题，我并没有实现社区中有的全部页面。
 
+![](https://github.com/OrangeSAM/CNode/raw/master/static/index.png)
 
+​			![](https://github.com/OrangeSAM/CNode/raw/master/static/article.png)
 
 以下为对CNode社区提供的部分API、实现的各个组件介绍以及项目编码中遇到的坑而又是如何解决的的总结。
 
 ---
 
 #### API介绍
+
+![](https://github.com/OrangeSAM/CNode/raw/master/static/2.png)
+
+这里由于API内容过多，是以缩略形式展示，需要完整的图，请到项目根目录static文件夹中获取。
 
 ---
 
@@ -185,7 +191,15 @@ getSideInfo() {
 
 ​	这个组件是主题详情组件，用于展示主题内容回复等。没有很多相较之前组件的新内容。说下用到的过滤器，由于API返回的创建时间是包含年月日等的具体时间，但希望页面中显示的是”几小时钱“这样，所以需要有过滤器对返回创建时间进行处理，这个过滤器逻辑比较简单就不贴代码了。另外，考虑到这种是通用的过滤器，建议放在全局中，即main.js文件。
 
-​	在这个页面中，同时存在的还有
+​	在这个页面中，同时存在的还有sidebar，当点击sidebar组件中主题时，由于Vue组件实例复用的原因，生命周期的钩子不会再被调用，这也意味着尽管点击后地址栏URL发生变化，但并不会触发`getArticleData methods`，此时就需要用到侦听器`watch`，以监听$route对象的变化，当路由变化时，则再次请求发起请求。
+
+```javascript
+  watch: {
+    $route(to, from) {
+      this.getArticleData();
+    }
+  }
+```
 
 ​	再有就是，除了简单的竖线键值之外，我们还可以在模板中编写JavaScript表达式，这一个feature在需要的时候会很有用的。比如这个组件中每条回复是有点赞数的，但我们并不希望在点赞数为0的时候也显示，这个时候就可以用到三目运算符进行判断（`{{comment.ups.length>0?comment.ups.length:''}}`）。此外，我们希望显示回复的楼层，但返回的回复为从0开始的数组类型，那此时我们在模板这样写就好了（`{{index+1}}楼`）。
 
