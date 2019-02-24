@@ -2,13 +2,7 @@
 
 这是我学习Vue之后的上手的第一个作品，还望大家多多指点^_^。
 
-
-
-以下为部分项目截图，由于在技术实现上的重复性以及接口的问题，我并没有实现社区中有的全部页面。
-
-![](https://github.com/OrangeSAM/CNode/raw/master/static/index.png)
-
-​			![](https://github.com/OrangeSAM/CNode/raw/master/static/article.png)
+项目截图在文章末尾。
 
 以下为对CNode社区提供的部分API、实现的各个组件介绍以及项目编码中遇到的坑而又是如何解决的的总结。
 
@@ -217,7 +211,13 @@ getSideInfo() {
 
 ​	路由配置中的`components`少写了`s`,当时beforeMount里的代码都没执行，控制台也没报错，完全懵逼。只好请教了眼尖的扫地僧。（~~所有的编程初学者都满级近视~~）
 
+##### 项目截图
 
+以下为部分项目截图，由于在技术实现上的重复性以及接口的问题，我并没有实现社区中有的全部页面。
+
+![](https://github.com/OrangeSAM/CNode/raw/master/static/index.png)
+
+​			![](https://github.com/OrangeSAM/CNode/raw/master/static/article.png)
 
 ​	谢谢看完，多多指教^_^
 
