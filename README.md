@@ -6,9 +6,9 @@
 
 以下为部分项目截图，由于在技术实现上的重复性以及接口的问题，我并没有实现社区中有的全部页面。
 
-![](https://github.com/OrangeSAM/CNode/raw/master/static/index.png){:width="300px"}
+![](https://github.com/OrangeSAM/CNode/raw/master/static/index.png)
 
-​			![](https://github.com/OrangeSAM/CNode/raw/master/static/article.png){:width="300px"}
+​			![](https://github.com/OrangeSAM/CNode/raw/master/static/article.png)
 
 以下为对CNode社区提供的部分API、实现的各个组件介绍以及项目编码中遇到的坑而又是如何解决的的总结。
 
