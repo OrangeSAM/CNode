@@ -3,7 +3,7 @@
     <headerbar></headerbar>
     <div class="main">
       <router-view name="main"></router-view>
-      <router-view name="slide"></router-view>
+      <router-view name="side"></router-view>
     </div>
   </div>
 </template>

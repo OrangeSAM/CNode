@@ -1,8 +1,8 @@
 <template>
   <div class="pagination">
     <div class="wrap">
-      <span @click="changeBtn">首页</span>
-      <span @click="changeBtn">上一页</span>
+      <span @click="changeBtn(1)">首页</span>
+      <span @click="changeBtn(curtPage-1)">上一页</span>
       <span v-if="judge">...</span>
       <span
         v-for="(btn,index) in pagebtns"
@@ -10,7 +10,7 @@
         :class="[{curtPage:btn==curtPage},'pagebtn']"
         @click="changeBtn(btn)"
       >{{btn}}</span>
-      <span @click="changeBtn">下一页</span>
+      <span @click="changeBtn(curtPage+1)">下一页</span>
     </div>
   </div>
 </template>
@@ -29,47 +29,37 @@ export default {
   },
   methods: {
     changeBtn(page) {
+      //这部分使用原生实现，但功能尚有问题
       // let btn = document.querySelectorAll(".pagination span");
       // let curt = document.querySelector("span.curtPage");
-      if (typeof page != "number") {
-        //   console.log(page.target.innerText);
-        //   switch (page.target.innerText) {
-        //     case "上一页":
-        //       console.log(curt.innerText);
-        //       this.changeBtn(Number(curt.innerText) - 1);
-        //       console.log("上一页");
-        //       break;
-        //     case "下一页":
-        //       console.log(curt.innerText);
-        //       this.changeBtn(Number(curt.innerText) + 1);
-        //       console.log("下一页");
-        //       break;
-        //     case "首页":
-        //       console.log(curt);
-        //       console.log(curt.innerText);
-        //       this.changeBtn(1);
-        //       break;
-        //   }
-        switch (page.target.innerText) {
-          case "上一页":
-            $("span.curtPage")
-              .prev()
-              .click();
-            break;
-          case "下一页":
-            $("span.curtPage")
-              .next()
-              .click();
-            break;
-          case "首页":
-            this.pagebtns = [1, 2, 3, 4, 5, "..."];
-            this.changeBtn(1);
-            break;
-          default:
-            break;
-        }
-        return;
-      }
+      // if (typeof page != "number") {
+      //   console.log(page.target.innerText);
+      //   switch (page.target.innerText) {
+      //     case "上一页":
+      //       this.changeBtn(Number(curt.innerText) - 1);console.log("上一页");
+      //       break;
+      //     case "下一页":
+      //       this.changeBtn(Number(curt.innerText) + 1);break;
+      //     case "首页":
+      //       this.changeBtn(1);break;
+      //   }
+
+      // switch (page.target.innerText) {
+      //     case "上一页":
+      //       $("span.curtPage").prev().click();
+      //       break;
+      //     case "下一页":
+      //       $("span.curtPage").next().click();
+      //       break;
+      //     case "首页":
+      //       this.pagebtns = [1, 2, 3, 4, 5, "..."];
+      //       this.changeBtn(1);
+      //       break;
+      //     default:
+      //       break;
+      //   }
+      //   return;
+      // }
       this.curtPage = page;
       if (page > 4) {
         this.judge = true;
@@ -98,12 +88,17 @@ export default {
 .wrap span {
   font-size: 14px;
   cursor: pointer;
+  padding: 3px;
 }
 .wrap .pagebtn {
   padding: 0 5px;
   color: #778087;
 }
-.wrap .pagebtn:nth-child(6) {
+.wrap span:hover {
+  background-color: #e4e4e4;
+  border-radius: 3px;
+}
+.wrap .pagebtn:nth-child(8) {
   cursor: not-allowed;
 }
 .wrap .curtPage {

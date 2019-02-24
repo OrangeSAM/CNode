@@ -5,7 +5,7 @@
     </div>
     <div class="postlist" v-else>
       <nav>
-        <span>全部</span>
+        <span class="active">全部</span>
         <span>精华</span>
         <span>分享</span>
         <span>问答</span>
@@ -22,8 +22,8 @@
               <span title="浏览数">{{post.visit_count}}</span>
             </span>
             <span
-              :class="[{putgood:(post.good==true),puttop:(post.top==true),
-              'putnormal':(post.good!=true&& post.top!=true)}]"
+              :class="[{putgood:(post.good==true),'puttop':(post.top==true),
+              putnormal:(post.good!=true&& post.top!=true)}]"
             >{{post|formatTopicType}}</span>
             <router-link :to="{name:'post_content',params:{id:post.id,name:post.author.loginname}}">
               <span class="title">{{post.title}}</span>
@@ -86,6 +86,15 @@ export default {
 
 
 <style scoped>
+.loading {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -100px; /* 高度的一半 */
+  margin-left: -100px; /* 宽度的一半 */
+}
 .post {
   background-color: #ffffff;
   width: 100%;
@@ -103,12 +112,13 @@ export default {
 .postlist nav span {
   display: inline-block;
   margin: 0 10px;
+  padding: 3px 4px;
   color: #80bd01;
+  font-size: 14px;
 }
 .postlist nav span.active {
   background-color: #80bd01;
   color: #fff;
-  padding: 3px 4px;
   border-radius: 3px;
 }
 .postlist li {
@@ -119,6 +129,10 @@ export default {
 }
 .postlist .topicwrap {
   padding: 10px;
+  transition: all 0.3s;
+}
+.postlist .topicwrap:hover {
+  background-color: #f9f6f6;
 }
 .postlist .topicwrap img {
   vertical-align: middle;
@@ -134,7 +148,7 @@ export default {
   font-size: 12px;
 }
 .topicwrap .replyvisit span:first-child {
-  color: #9e78c0;
+  color: #80bd01;
 }
 .topicwrap .replyvisit span:nth-child(2) {
   margin: 0 -3px;

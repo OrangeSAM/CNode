@@ -9,7 +9,7 @@
         <div class="articleUp">
           <div class="articleTitle">{{post.title}}</div>
           <div class="articleDetail">
-            <span>发布于{{post.created_at|formatDate}}</span>
+            <span>发布于{{post.create_at|formatDate}}</span>
             <span>作者{{post.author.loginname}}</span>
             <span>{{post.visit_count}}次浏览</span>
             <span>来自{{post.tab|formatTopicType}}</span>

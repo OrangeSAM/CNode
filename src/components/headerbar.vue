@@ -52,8 +52,7 @@ export default {
   display: flex;
   padding: 9px 0;
 }
-.logo {
-}
+
 .searchinput {
   flex-grow: 2;
   padding-left: 20px;
@@ -64,10 +63,13 @@ export default {
   padding-left: 25px;
   border: 0;
   border-radius: 15px;
-  background: url(https://static2.cnodejs.org/public/images/search.e53b380a.hashed.png)
-    4px 4px no-repeat #888;
+  background: url(../assets/search.png) 4px 4px no-repeat #888;
   vertical-align: -webkit-baseline-middle;
   margin-top: 3px;
+  transition: all 0.6s;
+}
+.searchinput input:hover {
+  background-color: #ffffff;
 }
 img {
   width: 120px;
@@ -86,5 +88,8 @@ nav {
 nav a {
   color: #ccc;
   text-shadow: none;
+}
+nav a:hover {
+  color: #fff;
 }
 </style>
