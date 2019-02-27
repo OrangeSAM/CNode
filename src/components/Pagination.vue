@@ -2,6 +2,7 @@
   <div class="pagination">
     <div class="wrap">
       <span @click="changeBtn(1)">首页</span>
+      <!-- <span @click="changeBtn(curtPage>1?curtPage-1:1)">上一页</span> -->
       <span @click="changeBtn(curtPage-1)">上一页</span>
       <span v-if="judge">...</span>
       <span
@@ -61,6 +62,10 @@ export default {
       //   return;
       // }
       this.curtPage = page;
+      if (page == 0) {
+        this.curtPage = 1;
+        $(this.pagebtns[0]).addClass("curtPage");
+      }
       if (page > 4) {
         this.judge = true;
       } else {

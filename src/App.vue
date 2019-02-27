@@ -26,10 +26,8 @@ export default {
   background-color: #e1e1e1;
 }
 .main {
-  width: 90%;
-  max-width: 1400px;
-  min-width: 960px;
   margin: 15px auto;
+  padding: 0 5%;
   min-height: 400px;
   display: flex;
 }
