@@ -25,6 +25,11 @@ export default {
 #app {
   background-color: #e1e1e1;
 }
+@media only screen and (min-width: 0px) and (max-width: 414px) {
+  #app {
+    font-size: 14px;
+  }
+}
 .main {
   margin: 15px auto;
   padding: 0 5%;

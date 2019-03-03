@@ -110,7 +110,7 @@ export default {
 .infoTopTitle,
 .infoTopicTitle,
 .infoJoinTitle {
-  padding: 10px;
+  padding: 2%;
   background-color: #f6f6f6;
   border-radius: 3px 3px 0 0;
 }

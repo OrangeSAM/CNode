@@ -7,15 +7,18 @@ const path = require('path')
 module.exports = {
   dev: {
 
-    // Paths
+    // Paths asserts资源文件的子文件夹
     assetsSubDirectory: 'static',
+    //asserts资源文件的子文件夹
     assetsPublicPath: '/',
+    //代理相关配置
     proxyTable: {},
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
     // host: '0.0.0.0', // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
+    //是否自动打开浏览器
     autoOpenBrowser: false,
     errorOverlay: true,
     notifyOnErrors: true,
@@ -39,11 +42,15 @@ module.exports = {
 
   build: {
     // Template for index.html
+    // 访问地址后默认首页，这是编译后的首页路径
     index: path.resolve(__dirname, '../dist/index.html'),
 
     // Paths
+    //编译后资源文件根目录
     assetsRoot: path.resolve(__dirname, '../dist'),
+    //编译后资源文件子目录
     assetsSubDirectory: 'static',
+    //编译后资源文件的访问地址，即是相对于资源文件根目录的位置
     assetsPublicPath: './',
 
     /**

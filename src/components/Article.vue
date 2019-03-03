@@ -106,10 +106,14 @@ export default {
 .articleWrap {
   flex: 2.5;
 }
-
+@media only screen and (min-width: 0px) and (max-width: 414px) {
+  .articleWrap {
+    width: 229px;
+  }
+}
 .articleUp {
   border-bottom: 1px solid #e5e5e5;
-  padding: 10px;
+  padding: 2%;
   background-color: #ffffff;
   border-radius: 3px 3px 0 0;
 }
@@ -133,7 +137,8 @@ export default {
   background-color: #ffffff;
 }
 .articleContent {
-  padding: 10px 20px;
+  padding: 3% 6%;
+  word-wrap: break-word;
 }
 .articleContent img {
   width: 100%;
@@ -168,6 +173,7 @@ export default {
 }
 .commentCont {
   margin: 5px 0;
+  word-break: break-all;
 }
 .commentCont img {
   width: 100%;

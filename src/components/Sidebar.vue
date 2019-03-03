@@ -91,7 +91,7 @@ export default {
 <style scoped>
 .side {
   flex: 1;
-  margin-left: 15px;
+  margin-left: 4%;
 }
 .sideTopTitle,
 .sideTopicTitle,
