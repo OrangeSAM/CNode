@@ -23,8 +23,7 @@ npm run build --report
 - **Vue2.0**：前端页面展示
 - **vue-router**：页面路由切换
 - **Axios**：一个基于 `Promise` 的 HTTP 库，向后端发起请求
-- **ES6**：箭头函数、Promise等等语法很好用。
-- **Canvas**：页面顶部小雪花效果。
+- **ES6**：箭头函数、Promise等等语法很好用
 - **Webpack**：vue init  webpck
 - **CSS3**：CSS3过渡动画及样式。
 
