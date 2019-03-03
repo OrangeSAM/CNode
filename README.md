@@ -2,7 +2,41 @@
 
 这是我学习Vue之后的上手的第一个作品，还望大家多多指点^_^。
 
-项目截图在文章末尾。
+#### Build Setup
+
+```json
+# install dependencies
+npm install
+
+# serve with hot reload at localhost:8080
+npm run dev
+
+# build for production with minification
+npm run build
+
+# build for production and view the bundle analyzer report
+npm run build --report
+```
+
+#### 项目技术栈
+
+- **Vue2.0**：前端页面展示
+- **vue-router**：页面路由切换
+- **Axios**：一个基于 `Promise` 的 HTTP 库，向后端发起请求
+- **ES6**：箭头函数、Promise等等语法很好用。
+- **Canvas**：页面顶部小雪花效果。
+- **Webpack**：vue init  webpck
+- **CSS3**：CSS3过渡动画及样式。
+
+##### TODO
+
+​	功能上：发帖，收藏，回复，点赞，
+
+​	实现上：使用Vuex共享各组件间的状态
+
+##### 项目截图在文章末尾。
+
+
 
 以下为对CNode社区提供的部分API、实现的各个组件介绍以及项目编码中遇到的坑而又是如何解决的的总结。
 
@@ -19,8 +53,6 @@
 #### 组件介绍
 
 ##### 	pagination 分页组件
-
-​	效果图如下
 
 ​	这个组件HTML和CSS部分的代码相对简单，最重要的是理清各按钮的排布逻辑。比如在点击页码5时，页码1	就应该去除且同时页码6显示在页码5之后；还有比如在目前页码为1的情况下，需要禁止上一页的执行。以下是组件template中的代码。
 
@@ -207,11 +239,11 @@ getSideInfo() {
 
 ---
 
-##### 	印象很深的坑
+#### 	印象很深的坑
 
 ​	路由配置中的`components`少写了`s`,当时beforeMount里的代码都没执行，控制台也没报错，完全懵逼。只好请教了眼尖的扫地僧。（~~所有的编程初学者都满级近视~~）
 
-##### 项目截图
+#### 项目截图
 
 以下为部分项目截图，由于在技术实现上的重复性以及接口的问题，我并没有实现社区中有的全部页面。
 
