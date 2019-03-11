@@ -7,6 +7,7 @@ import Sidebar from "../components/Sidebar.vue"
 
 Vue.use(Router)
 
+//routes也可以在外部定义好，直接在创建实例时使用
 export default new Router({
   routes: [{
     name: 'root',
